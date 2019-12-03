@@ -17,10 +17,15 @@ class myTeams extends Component {
     }
 
     render() {
+        const { currentUserName, currentUserEmail } = this.state;
         return (
-            console.log(this.state),
+
             <div>
+                <h1>Welcome {currentUserName}</h1>
+                <p>Email: {currentUserEmail}</p>
+                <p>Welcome to "my teams" page.</p>
             </div>
+            
         )
     }
 
