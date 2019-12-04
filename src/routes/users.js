@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const oktaClient = require('../lib/oktaClient');
+const oktaClient = require('../../lib/oktaClient');
 
 /* Create a new User (register). */
 router.post('/', (req, res, next) => {
