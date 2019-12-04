@@ -33,6 +33,11 @@ class Navbar extends Component {
                     </Link>
                   </li>
                   <li className="nav-item" id='nav-list'>
+                    <Link className="nav-link" to="/members">
+                      Members
+                    </Link>
+                  </li>
+                  <li className="nav-item" id='nav-list'>
                     <Link className="nav-link" to="/teams">
                       My Teams
                     </Link>

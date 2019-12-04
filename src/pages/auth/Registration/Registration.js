@@ -2,7 +2,7 @@ import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
 import './Registration.css'
-import config from '../../../../src/app.config';
+import config from '../../../app.config';
 
 export default withAuth(
   class RegistrationForm extends React.Component {
@@ -52,7 +52,7 @@ export default withAuth(
 
     handleSubmit(e) {
       e.preventDefault();
-      fetch('./users.js', {
+      fetch('/api/users', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

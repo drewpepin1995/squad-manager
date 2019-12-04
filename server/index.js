@@ -17,8 +17,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-app.use('/teams', require('../db/team'));
-app.use('/members', require("../db/user"));
+app.use('/api/teams', require('../db/team'));
+app.use('/api/members', require("../db/user"));
 
 
 app.listen(PORT, () => {

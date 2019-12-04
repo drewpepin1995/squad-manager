@@ -39,6 +39,7 @@ class Home extends Component {
             <p className="lead">You have entered members portal, <Link to='/profile'> click here</Link></p>
             <button className="button.btn.btn-light.btn-lg" onClick={this.logout}>Logout</button>
         </div>
+        
     ) : (
         <div>
             <p className="lead">If you are a member, please login ...</p>

@@ -2,14 +2,16 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 import './App.css';
+
 import Navbar from './components/Navbar/navbar'
-import Home from './components/pages/Home'
-import Login from './components/auth/login'
-import RegistrationForm from './components/auth/Registration/Registration'
-import ProfilePage from './components/auth/ProfilePage';
-import Teams from './components/pages/Teams'
-import Dues from './components/pages/Dues';
-import Schedule from './components/pages/Schedule';
+import Home from './pages/Home'
+import Login from './pages/auth/login'
+import RegistrationForm from './pages/auth/Registration/Registration'
+import ProfilePage from './pages/auth/ProfilePage';
+import Teams from './pages/Teams'
+import Dues from './pages/Dues';
+import Schedule from './pages/Schedule';
+import Members from './pages/Members';
 
 
 function onAuthRequired({history}) {
@@ -35,6 +37,7 @@ class App extends Component {
               <SecureRoute path='/teams' exact={true} component={Teams} />
               <SecureRoute path='/schedule' exact={true} component={Schedule} />
               <SecureRoute path='/dues' exact={true} component={Dues} />
+              <SecureRoute path='/members' exact={true} component={Members} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-451795.okta.com' />} />
               <Route path="/register" component={RegistrationForm} />
               <Route path='/implicit/callback' component={ImplicitCallback} />

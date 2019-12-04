@@ -10,14 +10,13 @@ class Schedule extends Component {
     componentDidMount() {
         const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
         this.setState({
-            currentUserEmail: idToken.idToken.claims.email,
             currentUserName: idToken.idToken.claims.name
 
         })
     }
 
     render() {
-        const { currentUserName, currentUserEmail } = this.state;
+        const { currentUserName } = this.state;
         return (
 
             <div>

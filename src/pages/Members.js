@@ -1,44 +1,44 @@
 import React, { Component } from 'react';
 
-class Teams extends Component {
+class Members extends Component {
   // Initialize the state
   constructor(props) {
     super(props);
     this.state = {
-      teams: []
+      members: []
     }
   }
 
   // Fetch the list on first mount
   componentDidMount() {
-    this.getTeams();
+    this.getMembers();
   }
 
   // Retrieves the list of items from the Express app
-  getTeams = () => {
-    fetch('/api/teams')
+  getMembers = () => {
+    fetch('/api/members')
       .then(res => res.json())
-      .then(teams => this.setState({ teams }))
+      .then(members => this.setState({ members }))
   }
 
   render() {
-    const { teams } = this.state;
+    const { members } = this.state;
 
     return (
       <div className="App">
-        <h1>Teams</h1>
+        <h1>List of Members</h1>
         {/* Check to see if any items are found*/}
-        {teams.length ? (
+        {members.length ? (
           <div>
 
             <div>
-              {JSON.stringify(teams)};
+              {JSON.stringify(members)};
                 </div>
 
           </div>
         ) : (
             <div>
-              <h2>No Teams Found ...</h2>
+              <h2>No Members Found ...</h2>
             </div>
           )
         }
@@ -47,4 +47,4 @@ class Teams extends Component {
   }
 }
 
-export default Teams;
+export default Members;
