@@ -36,7 +36,7 @@ class Home extends Component {
 
     const mainContent = this.state.authenticated ? (
         <div>
-            <p className="lead">You have entered members portal, <Link to='/myteams'> click here</Link></p>
+            <p className="lead">You have entered members portal, <Link to='/profile'> click here</Link></p>
             <button className="button.btn.btn-light.btn-lg" onClick={this.logout}>Logout</button>
         </div>
     ) : (

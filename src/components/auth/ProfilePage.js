@@ -1,33 +1,33 @@
-import React from 'react';
-import { withAuth } from '@okta/okta-react';
+import React, { Component } from 'react'
 
-export default withAuth(
-  class ProfilePage extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = { user: null };
-      this.getCurrentUser = this.getCurrentUser.bind(this);
-    }
+class Profile extends Component {
 
-    async getCurrentUser() {
-      this.props.auth.getUser().then(user => this.setState({ user }));
+    state={
+        currentUserName: '',
+        currentUserEmail: ''
     }
 
     componentDidMount() {
-      this.getCurrentUser();
+        const idToken = JSON.parse(localStorage.getItem('okta-token-storage'));
+        this.setState({
+            currentUserEmail: idToken.idToken.claims.email,
+            currentUserName: idToken.idToken.claims.name
+
+        })
     }
 
     render() {
-      if (!this.state.user) return null;
-      return (
-        <section className="user-profile">
-          <h1>User Profile</h1>
-          <div>
-            <label>Name:</label>
-            <span>{this.state.user.name}</span>
-          </div>
-        </section>
-      );
+        const { currentUserName, currentUserEmail } = this.state;
+        return (
+
+            <div>
+                <h1>Welcome {currentUserName}</h1>
+                <p>Email: {currentUserEmail}</p>
+            </div>
+            
+        )
     }
-  }
-);
+
+}
+
+export default Profile;

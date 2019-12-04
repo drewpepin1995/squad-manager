@@ -23,7 +23,7 @@
     "serialize-javascript": "^2.1.0"
   },
   "scripts": {
-    "start": "node server/index.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "server": "nodemon server",
     "eject": "react-scripts eject"

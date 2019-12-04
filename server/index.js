@@ -2,8 +2,6 @@ const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const knex = require('../db/knex.js')
-const indexRouter = require('../src/index');
-const usersRouter = require('../api/routes/users');
 
 
 
@@ -21,11 +19,6 @@ app.use(bodyParser.json());
 
 app.use('/teams', require('../db/team'));
 app.use('/members', require("../db/user"));
-
-app.use('/api', indexRouter);
-app.use('/api/users', usersRouter);
-
-app.use('/auth', auth);
 
 
 app.listen(PORT, () => {
