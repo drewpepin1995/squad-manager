@@ -2,7 +2,7 @@ import React from 'react';
 import OktaAuth from '@okta/okta-auth-js';
 import { withAuth } from '@okta/okta-react';
 import './Registration.css'
-import config from '../../../app.config';
+import config from '../../../../src/app.config';
 
 export default withAuth(
   class RegistrationForm extends React.Component {
