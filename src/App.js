@@ -6,11 +6,14 @@ import Navbar from './components/Navbar/navbar'
 import Home from './components/pages/Home'
 import MyTeams from './components/pages/MyTeams'
 import Login from './components/auth/login'
+import RegistrationForm from './components/auth/Registration/Registration'
+import ProfilePage from './components/auth/ProfilePage'
 
 
 function onAuthRequired({history}) {
   history.push('/login')
 }
+
 
 
 class App extends Component {
@@ -27,7 +30,9 @@ class App extends Component {
             <div className="container">
               <Route path='/' exact={true} component={Home} />
               <SecureRoute path='/myteams' exact={true} component={MyTeams} />
+              <SecureRoute path="/profile" component={ProfilePage} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-451795.okta.com' />} />
+              <Route path="/register" component={RegistrationForm} />
               <Route path='/implicit/callback' component={ImplicitCallback} />
             </div>
           </div>
