@@ -7,8 +7,8 @@ import '../Navbar/navbar.css'
 class Navbar extends Component {
     render() {
         return (
-          <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
-            <div className="container">
+          <nav className="navbar navbar-sm navbar-dark bg-dark mb-4">
+            <div className="container p-3">
               <Link className="navbar-brand" to="/">
                 Squad Manager
               </Link>
@@ -22,15 +22,30 @@ class Navbar extends Component {
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav ml-auto">
-                  <li className="nav-item">
+                  <li className="nav-item" id='nav-list'>
                     <Link className="nav-link" to="/">
                       Home
                     </Link>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item" id='nav-list'>
                     <Link className="nav-link" to="/profile">
                       Profile
                     </Link>
+                  </li>
+                  <li className="nav-item" id='nav-list'>
+                    <Link className="nav-link" to="/teams">
+                      My Teams
+                    </Link>
+                  </li>
+                  <li className="nav-item" id='nav-list'>
+                    <Link className="nav-link" to="/profile">
+                      Schedule
+                    </Link>
+                    <li className="nav-item" id='nav-list'>
+                    <Link className="nav-link" to="/profile">
+                      Dues
+                    </Link>
+                  </li>
                   </li>
                 </ul>
               </div>
