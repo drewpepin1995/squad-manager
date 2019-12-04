@@ -52,7 +52,7 @@ export default withAuth(
 
     handleSubmit(e) {
       e.preventDefault();
-      fetch('/api/users', {
+      fetch('./users.js', {
         method: 'POST',
         headers: {
           Accept: 'application/json',

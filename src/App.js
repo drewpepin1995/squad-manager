@@ -8,6 +8,8 @@ import Login from './components/auth/login'
 import RegistrationForm from './components/auth/Registration/Registration'
 import ProfilePage from './components/auth/ProfilePage';
 import Teams from './components/pages/Teams'
+import Dues from './components/pages/Dues';
+import Schedule from './components/pages/Schedule';
 
 
 function onAuthRequired({history}) {
@@ -31,6 +33,8 @@ class App extends Component {
               <Route path='/' exact={true} component={Home} />
               <SecureRoute path='/profile' exact={true} component={ProfilePage} />
               <SecureRoute path='/teams' exact={true} component={Teams} />
+              <SecureRoute path='/schedule' exact={true} component={Schedule} />
+              <SecureRoute path='/dues' exact={true} component={Dues} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-451795.okta.com' />} />
               <Route path="/register" component={RegistrationForm} />
               <Route path='/implicit/callback' component={ImplicitCallback} />

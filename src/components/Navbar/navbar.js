@@ -38,11 +38,11 @@ class Navbar extends Component {
                     </Link>
                   </li>
                   <li className="nav-item" id='nav-list'>
-                    <Link className="nav-link" to="/profile">
+                    <Link className="nav-link" to="/schedule">
                       Schedule
                     </Link>
                     <li className="nav-item" id='nav-list'>
-                    <Link className="nav-link" to="/profile">
+                    <Link className="nav-link" to="/dues">
                       Dues
                     </Link>
                   </li>
