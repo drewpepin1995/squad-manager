@@ -1,12 +1,14 @@
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require('cors');
 const knex = require('../db/knex.js');
 const auth = require('../auth/index');
+require("dotenv").config();
 
 
 
-let db = require('./database');
+let db = require('../db/database/index');
 
 const ENV = process.env.NODE_ENV;
 const PORT = process.env.PORT || 3001;

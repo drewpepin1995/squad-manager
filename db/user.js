@@ -21,25 +21,25 @@ router.get('/', function (req, res) {
 
 
 router.post('/add', function (req, res, next) {
-    if(validUser(req.body)) {
-        knex('user').insert({
-            email: req.body.email,
-            name: req.body.name,
-            password: req.body.password
+    if (validUser(req.body)) {
 
+        knex('user').insert({
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 12)
         })
-    
             .then(function () {
                 knex.select().from('user').then(function (user) {
-                res.send(user)
-        })
-    
-    }) 
-} else {
+                    res.send(user)
+                })
 
-    next(new Error('Invalid user'))
-}
-    
+            })
+    } else {
+
+        next(new Error('Invalid user'))
+    }
+
 });
 
 module.exports = router;
