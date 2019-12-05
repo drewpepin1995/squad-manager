@@ -20,7 +20,7 @@ router.get('/', function (req, res) {
 })
 
 
-router.post('/add', function (req, res, next) {
+router.post('/signup', function (req, res, next) {
     if (validUser(req.body)) {
 
         knex('user').insert({
@@ -40,6 +40,29 @@ router.post('/add', function (req, res, next) {
         next(new Error('Invalid user'))
     }
 
+});
+
+router.post('/login', (req, res, next) => {
+
+    if (validUser(req.body)) {
+        knex.select().from('user').where({
+            email: req.body.email
+        })
+            .then(function (user) {
+
+                bcrypt.compare(req.body.password, user[0].password).then((result) => {
+                    res.json({
+                        result,
+                        message: "password matched"
+                    })
+                })
+
+
+            })
+
+    } else {
+        next(new Error('Invalid login.'))
+    }
 });
 
 module.exports = router;
