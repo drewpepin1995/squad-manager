@@ -11,7 +11,7 @@ import ProfilePage from './pages/auth/ProfilePage';
 import Teams from './pages/Teams'
 import Dues from './pages/Dues';
 import Schedule from './pages/Schedule';
-import Members from './pages/Members';
+import Players from './pages/Players';
 
 
 function onAuthRequired({history}) {
@@ -37,7 +37,7 @@ class App extends Component {
               <SecureRoute path='/teams' exact={true} component={Teams} />
               <SecureRoute path='/schedule' exact={true} component={Schedule} />
               <SecureRoute path='/dues' exact={true} component={Dues} />
-              <SecureRoute path='/members' exact={true} component={Members} />
+              <SecureRoute path='/players' exact={true} component={Players} />
               <Route path='/login' render={() => <Login baseUrl='https://dev-451795.okta.com' />} />
               <Route path="/register" component={RegistrationForm} />
               <Route path='/implicit/callback' component={ImplicitCallback} />
