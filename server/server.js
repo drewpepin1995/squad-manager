@@ -4,7 +4,11 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 const knex = require('../db/knex.js');
 const auth = require('../auth/index');
-require("dotenv").config();
+const cookieParser = require('cookie-parser')
+
+
+require('dotenv').config({path:__dirname+'../server/.env'})
+
 
 
 
@@ -17,6 +21,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(bodyParser.json());
 
 

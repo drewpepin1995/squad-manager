@@ -51,10 +51,22 @@ router.post('/login', (req, res, next) => {
             .then(function (user) {
 
                 bcrypt.compare(req.body.password, user[0].password).then((result) => {
-                    res.json({
-                        result,
-                        message: "password matched"
-                    })
+                    if (result === true) {
+                        console.log(user[0].id)
+                        const isSecure = req.app.get('env') != 'developmont';
+                        res.cookie('user_id', user[0].id, {
+                            httpOnly: true,
+                            signed: true,
+                            secure: isSecure
+                        });
+                        res.json({
+                            result,
+                            message: "Logged in ..."
+                    })} else {
+                        res.json({
+                            result,
+                            message: "Incorrect login info."
+                    })}
                 })
 
 
