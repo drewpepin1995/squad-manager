@@ -1,0 +1,12 @@
+body {
+    font-family: 'Sarpanch', sans-serif;
+    color: darkorange;
+    font-size: 80px;
+    text-align: center;
+    background: darkblue;
+}
+
+#q {
+    color: silver;
+    font-size: 120px;
+}
