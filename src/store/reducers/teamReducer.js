@@ -10,6 +10,10 @@ const teamsReducer = (state = initState, action) => {
     switch (action.type) {
         case 'CREATE_TEAM': 
             console.log('created team', action.team)
+            return state;
+        case 'CREATE_PROJECT_ERROR':
+            console.log("Error creating project", action.err)
+            return state;
     }
     return state;
 }

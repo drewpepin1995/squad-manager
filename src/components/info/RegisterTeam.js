@@ -7,8 +7,7 @@ class RegisterTeam extends Component {
 
     state = {
         name: '',
-        sport: '',
-        manager: ''
+        sport: ''
     }
 
     handleChange = (e) =>{
@@ -34,11 +33,6 @@ class RegisterTeam extends Component {
                     <div className='input-field'>
                         <label htmlFor='sport'>Sport</label>
                         <input type='text' id='sport' onChange={this.handleChange}/>
-                        
-                    </div>
-                    <div className='input-field'>
-                        <label htmlFor='sport'>Manager</label>
-                        <input type='text' id='manager' onChange={this.handleChange}/>
                         
                     </div>
                     <div className="input-field">
