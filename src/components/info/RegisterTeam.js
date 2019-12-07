@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { createTeam } from '../../store/actions/teamsActions';
 
 
 class RegisterTeam extends Component {
@@ -16,7 +18,7 @@ class RegisterTeam extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.createTeam(this.state)
     }
 
     render() {
@@ -47,4 +49,10 @@ class RegisterTeam extends Component {
         );
     }
 }
-export default RegisterTeam;
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createTeam: (team) => dispatch(createTeam(team))
+    }
+}
+export default connect(null, mapDispatchToProps)(RegisterTeam);

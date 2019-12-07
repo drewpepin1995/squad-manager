@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Notifications from './Results'
-import UpcomingGames from '../info/UpcomingGames'
+import Teams from '../info/Teams'
 import { connect } from 'react-redux';
 import Results from './Results';
 
@@ -8,15 +7,14 @@ import Results from './Results';
 
 class Dashboard extends Component {
     render() {
-
-        const { games } = this.props;
+        const { teams } = this.props;
 
         return (
             <div className='dashboard container'>
                 <div className='row'>
                     <div className="col s12 m6">
-                        <h5 id='dashboardHeader'>Upcoming Games</h5>
-                        <UpcomingGames games={games} />
+                        <h5 id='dashboardHeader'>My Teams</h5>
+                        <Teams teams={teams} />
                     </div>
                     <div className='col s12 m5 offset-m1'>
                     <h5 id='dashboardHeader'>Game Results</h5>
@@ -31,7 +29,7 @@ class Dashboard extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        games: state.upcomingGame.games
+        teams: state.team.teams
     }
 }
 export default connect(mapStateToProps)(Dashboard);
