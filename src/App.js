@@ -6,7 +6,11 @@ import GameDetails from './components/info/GameDetails'
 import SignIn from './components/auth/SignIn'
 import SignUp from './components/auth/SignUp'
 import RegisterTeam from './components/info/RegisterTeam'
+import Schedule from './components/info/Schedule'
+import Dues from './components/info/Dues'
+import MyTeams from './components/info/MyTeams';
 import './App.css';
+
 
 
 
@@ -24,6 +28,10 @@ class App extends Component {
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/registerteam' component={RegisterTeam} />
+            <Route path='/schedule' component={Schedule} />
+            <Route path='/dues' component={Dues} />
+            <Route path='/teams' component={MyTeams} />
+
           </Switch>
       </div>
       </BrowserRouter>

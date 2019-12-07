@@ -1,37 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
+import UpcomingGamesSummary from './UpcomingGamesSummary';
 
 
-class UpcomingGames extends Component {
-    render() {
-        return (
-            <div className="team-list section">
-                <div className="card z-depth-0 project-summary">
-                    <div className='card-content grey-text text-darken-3'>
-                        <span className="card-title">Upcoming Game</span>
-                        <p className="grey-test">...</p>
-                    </div>
-                </div>
-                <div className="card z-depth-0 project-summary">
-                    <div className='card-content grey-text text-darken-3'>
-                        <span className="card-title">Upcoming Game</span>
-                        <p className="grey-test">...</p>
-                    </div>
-                </div>
-                <div className="card z-depth-0 project-summary">
-                    <div className='card-content grey-text text-darken-3'>
-                        <span className="card-title">Upcoming Game</span>
-                        <p className="grey-test">...</p>
-                    </div>
-                </div>
-                <div className="card z-depth-0 project-summary">
-                    <div className='card-content grey-text text-darken-3'>
-                        <span className="card-title">Upcoming Game</span>
-                        <p className="grey-test">...</p>
-                    </div>
-                </div>
-            </div>
-            
-        );
-    }
+const UpcomingGames = ({ games }) => {
+
+    return (
+        <div className="team-list section">
+             {games && games.map(game => {
+                return (
+                    <UpcomingGamesSummary game={game} key={game.id} />
+                )
+            })
+            }
+        </div>
+    );
 }
 export default UpcomingGames;

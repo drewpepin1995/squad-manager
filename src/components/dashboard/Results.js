@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-const Notifications = () => {
+const Results = () => {
   return (
       <div className="container">
         <p>Notifications</p>
@@ -12,4 +12,4 @@ const Notifications = () => {
   );
 }
 
-export default Notifications;
+export default Results;
