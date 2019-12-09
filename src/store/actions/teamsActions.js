@@ -2,11 +2,13 @@ export const createTeam = (team) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
 
         const firestore = getFirestore();
+        const profile = getState().firebase.profile;
+        const managerId = getState().firebase.auth.uid;
         firestore.collection('teams').add({
             ...team,
-            managerFirstName: 'Drew',
-            managerLastName: 'Pepin',
-            managerId: '1',
+            managerFirstName: profile.firstName,
+            managerLastName: profile.lastName,
+            managerId: managerId,
             createdAt: new Date()
         }).then(() => {
             dispatch({ type: 'CREATE_TEAM', team })

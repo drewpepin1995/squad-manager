@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createTeam } from '../../store/actions/teamsActions';
+import { Redirect } from 'react-router-dom';
 
 
 class RegisterTeam extends Component {
@@ -18,9 +19,12 @@ class RegisterTeam extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.createTeam(this.state)
+        this.props.history.push('/');
     }
 
     render() {
+        const { auth } = this.props;
+        if (!auth.uid) return <Redirect to='/signin' />
         return (
             <div className='container'>
                 <form onSubmit={this.handleSubmit} className='white'>
@@ -35,12 +39,20 @@ class RegisterTeam extends Component {
                         <input type='text' id='sport' onChange={this.handleChange}/>
                         
                     </div>
-                    <div className="input-field">
-                        <button className='btn purple lighten-1 z-depth-0'>Register</button>
+                    <div className='input-field'>
+                        <label htmlFor='roster'>Roster</label>
+                        <input type='text' id='roster' onChange={this.handleChange}/>
+                        
                     </div>
                 </form>
             </div>
         );
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
     }
 }
 
@@ -49,4 +61,4 @@ const mapDispatchToProps = (dispatch) => {
         createTeam: (team) => dispatch(createTeam(team))
     }
 }
-export default connect(null, mapDispatchToProps)(RegisterTeam);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterTeam);

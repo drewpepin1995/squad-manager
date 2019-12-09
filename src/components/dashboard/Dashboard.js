@@ -2,12 +2,17 @@ import React, { Component } from 'react';
 import Teams from '../info/Teams'
 import { connect } from 'react-redux';
 import Results from './Results';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
+import { Redirect } from 'react-router-dom';
 
 
 
 class Dashboard extends Component {
     render() {
-        const { teams } = this.props;
+        const { teams, auth } = this.props;
+        if (!auth.uid) return <Redirect to='/signin' />
+
 
         return (
             <div className='dashboard container'>
@@ -28,8 +33,15 @@ class Dashboard extends Component {
     }
 }
 const mapStateToProps = (state) => {
+    console.log(state);
     return {
-        teams: state.team.teams
+        teams: state.firestore.ordered.teams,
+        auth: state.firebase.auth
     }
 }
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'teams' }
+    ])
+)(Dashboard);

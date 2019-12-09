@@ -8,7 +8,9 @@ import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createFirestoreInstance, reduxFirestore, getFirestore } from 'redux-firestore';
-import { reactReduxFirebase, getFirebase, ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import { getFirebase, ReactReduxFirebaseProvider } from 'react-redux-firebase';
+import M from 'materialize-css';
+
 import firebase from 'firebase';
 import fbConfig from './config/fbConfig';
 
@@ -21,9 +23,15 @@ const store = createStore(
   )
 );
 
+const rrfConfig = {
+  userProfile: "users",
+  useFirestoreForProfile: true,
+  attachAuthIsReady: true
+};
+
 const rrfProps = {
   firebase,
-  config: fbConfig,
+  config: rrfConfig,
   dispatch: store.dispatch,
   createFirestoreInstance
 };
@@ -39,3 +47,9 @@ ReactDOM.render(
 );
 
 serviceWorker.unregister();
+
+// Adding support for materialize select
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('select');
+  M.FormSelect.init(elems);
+});
