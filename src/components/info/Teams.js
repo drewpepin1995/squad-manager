@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Teams = ({ teams }) => {
 
+
     return (
         <div className="team-list section">
              {teams && teams.map(team => {
@@ -12,6 +13,7 @@ const Teams = ({ teams }) => {
                     <Link to={'/team/' + team.id}>
                     <TeamSummary team={team} key={team.id} />
                     </Link>
+                    
                 )
             })
             }

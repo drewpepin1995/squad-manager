@@ -3,6 +3,13 @@ import { connect } from 'react-redux';
 import { createTeam } from '../../store/actions/teamsActions';
 import { Redirect } from 'react-router-dom';
 
+import 'antd/dist/antd.css';
+import {
+    Form,
+    Input,
+    Button
+} from 'antd';
+
 
 class RegisterTeam extends Component {
 
@@ -11,7 +18,7 @@ class RegisterTeam extends Component {
         sport: ''
     }
 
-    handleChange = (e) =>{
+    handleChange = (e) => {
         this.setState({
             [e.target.id]: e.target.value
         })
@@ -27,25 +34,21 @@ class RegisterTeam extends Component {
         if (!auth.uid) return <Redirect to='/signin' />
         return (
             <div className='container'>
-                <form onSubmit={this.handleSubmit} className='white'>
-                    <h5 className='grey-text text-darken-3'>Register a Team</h5>
-                    <div className='input-field'>
-                        <label htmlFor='name'>Team Name</label>
-                        <input type='text' id='name' onChange={this.handleChange}/>
-                        
-                    </div>
-                    <div className='input-field'>
-                        <label htmlFor='sport'>Sport</label>
-                        <input type='text' id='sport' onChange={this.handleChange}/>
-                        
-                    </div>
-                    <div className='input-field'>
-                        <label htmlFor='roster'>Roster</label>
-                        <input type='text' id='roster' onChange={this.handleChange}/>
-                        
-                    </div>
-                </form>
-            </div>
+            <Form id='form' onSubmit={this.handleSubmit}>
+                <h5 className='grey-text text-darken-3'>Team Registration</h5>
+                <Form.Item label="Team Name" htmlFor='Team Name'>
+                    <Input id='name' onChange={this.handleChange} />
+                </Form.Item>
+                <Form.Item label="Sport" htmlFor='Sport'>
+                    <Input id='sport' onChange={this.handleChange} />
+                </Form.Item>
+                <Form.Item >
+                    <Button type="primary" htmlType="submit">
+                        Create
+          </Button>
+                </Form.Item>
+            </Form>
+        </div>
         );
     }
 }

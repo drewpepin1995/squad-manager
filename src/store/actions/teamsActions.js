@@ -4,7 +4,7 @@ export const createTeam = (team) => {
         const firestore = getFirestore();
         const profile = getState().firebase.profile;
         const managerId = getState().firebase.auth.uid;
-        firestore.collection('teams').add({
+        firestore.collection('/users/' + managerId + '/teams/').add({
             ...team,
             managerFirstName: profile.firstName,
             managerLastName: profile.lastName,
