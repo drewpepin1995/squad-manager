@@ -1,8 +1,10 @@
 import React from 'react'
-import { Typography, Paper, Avatar, Button } from '@material-ui/core'
+import './styles.css'
+import { Typography, Paper, Avatar, Button, Divider } from '@material-ui/core'
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link } from 'react-router-dom'
+import { red } from '@material-ui/core/colors'
 
 const styles = theme => ({
 	main: {
@@ -10,7 +12,7 @@ const styles = theme => ({
 		display: 'block', // Fix IE 11 issue.
 		marginLeft: theme.spacing.unit * 3,
 		marginRight: theme.spacing.unit * 3,
-		[theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
+				[theme.breakpoints.up(400 + theme.spacing.unit * 3 * 2)]: {
 			width: 400,
 			marginLeft: 'auto',
 			marginRight: 'auto',
@@ -23,10 +25,6 @@ const styles = theme => ({
 		alignItems: 'center',
 		padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
 	},
-	avatar: {
-		margin: theme.spacing.unit,
-		backgroundColor: theme.palette.secondary.main,
-	},
 	submit: {
 		marginTop: theme.spacing.unit * 3,
 	},
@@ -36,15 +34,13 @@ function HomePage(props) {
 	const { classes } = props
 
 	return (
-		<main className={classes.main}>
+		<div id="brand"><main className={classes.main} id="brand">
 			<Paper className={classes.paper}>
-				<Avatar className={classes.avatar}>
-					<VerifiedUserOutlined />
-				</Avatar>
+			<img src= "smallLogo.png" id="logo"/>
 				<Typography component="h1" variant="h5">
-					Hey how's it goin' dog?
+					Welcome to squadMaster
 				</Typography>
-				<Button
+				<Button id="btn1"
 					type="submit"
 					fullWidth
 					variant="contained"
@@ -54,7 +50,7 @@ function HomePage(props) {
 					className={classes.submit}>
 					Register
           		</Button>
-				<Button
+				<Button id="btn1"
 					type="submit"
 					fullWidth
 					variant="contained"
@@ -64,7 +60,7 @@ function HomePage(props) {
 					className={classes.submit}>
 					Login
           		</Button>
-				<Button
+				<Button id="btn1"
 					type="submit"
 					fullWidth
 					variant="contained"
@@ -76,6 +72,7 @@ function HomePage(props) {
           		</Button>
 			</Paper>
 		</main>
+		</div>
 	)
 }
 

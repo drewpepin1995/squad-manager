@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
+import '../HomePage/styles.css'
 import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link, withRouter } from 'react-router-dom'
-import firebase from '../../config/firebase'
+import firebase from '../firebase'
+
+
 
 const styles = theme => ({
 	main: {
@@ -29,7 +32,7 @@ const styles = theme => ({
 		backgroundColor: theme.palette.secondary.main,
 	},
 	form: {
-		width: '100%', // Fix IE 11 issue.
+		width: '100%', 
 		marginTop: theme.spacing.unit,
 	},
 	submit: {
@@ -46,11 +49,9 @@ function SignIn(props) {
 	return (
 		<main className={classes.main}>
 			<Paper className={classes.paper}>
-				<Avatar className={classes.avatar}>
-					<LockOutlinedIcon />
-				</Avatar>
+				<img src="smallLogo.png" id="logo"/>
 				<Typography component="h1" variant="h5">
-					Hey there old man, have you considered logging in?
+					Please log in
        			</Typography>
 				<form className={classes.form} onSubmit={e => e.preventDefault() && false}>
 					<FormControl margin="normal" required fullWidth>
@@ -61,7 +62,7 @@ function SignIn(props) {
 						<InputLabel htmlFor="password">Password</InputLabel>
 						<Input name="password" type="password" id="password" autoComplete="off" value={password} onChange={e => setPassword(e.target.value)} />
 					</FormControl>
-					<Button
+					<Button id='btn1'
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -70,7 +71,7 @@ function SignIn(props) {
 						className={classes.submit}>
 						Sign in
           			</Button>
-					<Button
+					<Button id='btn1'
 						type="submit"
 						fullWidth
 						variant="contained"

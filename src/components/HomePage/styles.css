@@ -1,0 +1,16 @@
+#btn1 {
+    background: #00004D;
+    color: orange;  
+  }
+
+  #logo {
+    vertical-align: middle;
+    width: 60px;
+    height: 50px;
+    margin-bottom: 15px;
+  }
+
+  #brand {
+      height: 100vh;
+      background: silver;
+  }

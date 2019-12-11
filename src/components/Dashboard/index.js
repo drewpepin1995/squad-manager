@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Typography, Paper, Avatar, CircularProgress, Button } from '@material-ui/core'
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined'
 import withStyles from '@material-ui/core/styles/withStyles'
-import firebase from '../../config/firebase'
+import firebase from '../firebase'
 import { withRouter } from 'react-router-dom'
 
 const styles = theme => ({

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import '../HomePage/styles.css'
 import { Typography, Paper, Avatar, Button, FormControl, Input, InputLabel } from '@material-ui/core'
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import withStyles from '@material-ui/core/styles/withStyles'
 import { Link, withRouter } from 'react-router-dom'
-// import firebase from '../../config/firebase'
+import firebase from '../firebase'
 const styles = theme => ({
 	main: {
 		width: 'auto',
@@ -22,10 +23,6 @@ const styles = theme => ({
 		flexDirection: 'column',
 		alignItems: 'center',
 		padding: `${theme.spacing.unit * 2}px ${theme.spacing.unit * 3}px ${theme.spacing.unit * 3}px`,
-	},
-	avatar: {
-		margin: theme.spacing.unit,
-		backgroundColor: theme.palette.secondary.main,
 	},
 	form: {
 		width: '100%', // Fix IE 11 issue.
@@ -47,9 +44,7 @@ function Register(props) {
 	return (
 		<main className={classes.main}>
 			<Paper className={classes.paper}>
-				<Avatar className={classes.avatar}>
-					<LockOutlinedIcon />
-				</Avatar>
+				<img src="smallLogo.png" id="logo"/>
 				<Typography component="h1" variant="h5">
 					Register Account
        			</Typography>
@@ -66,12 +61,9 @@ function Register(props) {
 						<InputLabel htmlFor="password">Password</InputLabel>
 						<Input name="password" type="password" id="password" autoComplete="off" value={password} onChange={e => setPassword(e.target.value)}  />
 					</FormControl>
-					<FormControl margin="normal" required fullWidth>
-						<InputLabel htmlFor="quote">Your Favorite Quote</InputLabel>
-						<Input name="quote" type="text" id="quote" autoComplete="off" value={quote} onChange={e => setQuote(e.target.value)}  />
-					</FormControl>
 
 					<Button
+						id="btn1"
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -82,6 +74,7 @@ function Register(props) {
           			</Button>
 
 					<Button
+					id="btn1"
 						type="submit"
 						fullWidth
 						variant="contained"
@@ -98,8 +91,8 @@ function Register(props) {
 
 	async function onRegister() {
 		try {
-			// await firebase.register(name, email, password)
-			// await firebase.addQuote(quote)
+			await firebase.register(name, email, password)
+			await firebase.addQuote(quote)
 			props.history.replace('/dashboard')
 		} catch(error) {
 			alert(error.message)

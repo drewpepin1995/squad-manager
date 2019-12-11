@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './styles.css'
-import HomePage from './components/HomePage'
-import Login from './components/Login'
-import Register from './components/Register'
-import Dashboard from './components/Dashboard'
+import HomePage from '../HomePage'
+import Login from '../Login'
+import Register from '../Register'
+import Dashboard from '../Dashboard'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { CssBaseline, CircularProgress } from '@material-ui/core'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import firebase from './config/firebase'
+import firebase from '../firebase'
 
 const theme = createMuiTheme()
 
@@ -20,6 +20,7 @@ export default function App() {
 			setFirebaseInitialized(val)
 		})
 	})
+
 
 	return firebaseInitialized !== false ? (
 		<MuiThemeProvider theme={theme}>
