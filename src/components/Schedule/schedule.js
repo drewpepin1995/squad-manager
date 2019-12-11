@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
+import './schedule.css';
 
 class Schedule extends Component {
     state = {
@@ -11,10 +12,13 @@ class Schedule extends Component {
     render() {
         return (
             <div>
-                <Calendar
-                    onChange={this.onChange}
-                    value={this.state.date}
-                />
+                <h2>My Schedule</h2>
+                <div id="schedule">
+                    <Calendar
+                        onChange={this.onChange}
+                        value={this.state.date}
+                    />
+                </div>
             </div>
         );
     }

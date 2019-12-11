@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import logo from './logo.svg';
+import './App.css';
+/* import Schedule from './components/Schedule/schedule.js';
+import EventDetails from './components/Event-Details/event.js';
+import TeamDetails from './components/Team-Details/team.js'; */
+class App extends Component {
+  /*   constructor() {
+      super();
+      this.state = {
+        results: {}
+      }
+    } */
+
+/*   render() {
+    return (
+      <div>
+        <header>
+          SM
+        </header>
+      </div>
+      <main>
+        {this.props.children}
+      </main>
+
+      <footer>
+        TBD
+      </footer>
+    );
+  } */
+  function App() {
+  return (
+    <div className="App">
+      <Navbar />
+      <Main />
+    </div>
+  );
+}
+}
+
+export default App;
