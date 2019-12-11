@@ -1,6 +1,6 @@
 import app from 'firebase/app'
 import 'firebase/auth'
-import 'firebase/firebase-firestore'
+import 'firebase/firestore'
 
 let firebaseConfig = {
     apiKey: "AIzaSyC4umx0e3608m4Bvk5-kqqVIPrK1EZeEGs",
@@ -59,6 +59,8 @@ class Firebase {
 		const quote = await this.db.doc(`users_codedamn_video/${this.auth.currentUser.uid}`).get()
 		return quote.get('quote')
 	}
-}
+};
 
-export default new Firebase()
+const firebase = new Firebase();
+
+export default firebase;
