@@ -39,20 +39,20 @@ export const insertPlayer = (player, teamId) => {
 
 }
 
-export const insertGame = (team) => {
+export const insertGame = (game, teamId) => {
 
+    const { date, opponent } = game
 
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firestore = getFirestore();
         const profile = getState().firebase.profile;
         const managerId = getState().firebase.auth.uid;
-        const teamId = '4br95DPvY7laN4TCk891'
             firestore.collection('/users/' + managerId + '/teams/' + teamId + '/schedule/').add({
-                ...team,
+                date, opponent,
                 addedBy: managerId,
                 addedAt: new Date()
             }).then(() => {
-                dispatch({ type: 'INSERT_GAME', team })
+                dispatch({ type: 'INSERT_GAME', game: {date, opponent} })
             }).catch((err) => {
                 dispatch({ type: 'INSERT_GAME_ERROR', err })
             })

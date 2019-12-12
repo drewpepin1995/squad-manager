@@ -21,7 +21,7 @@ const teamsReducer = (state = initState, action) => {
             console.log("Error adding player", action.err)
             return state;
         case 'INSERT_GAME':
-            console.log("Game Added", action.team)
+            console.log("Game Added", action.game)
             return state;
         case 'INSERT_GAME_ERROR':
             console.log("Error adding game", action.err)

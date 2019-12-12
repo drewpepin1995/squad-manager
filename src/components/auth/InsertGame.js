@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { withRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Modal, Button, Form, Input } from 'antd';
 import { DatePicker } from 'antd';
@@ -50,7 +50,12 @@ class InsertGame extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.insertGame(this.state)
+        this.props.insertGame(
+            this.state, this.props.match.params.id
+                
+                
+            
+        )
   }
 
   handleDateInputChange = (date) => {
@@ -97,7 +102,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-      insertGame: (team) => dispatch(insertGame(team))
+      insertGame: (game, teamId) => dispatch(insertGame(game, teamId))
   }
 }
-export default connect(mapStateToProps, mapDispatchToProps)(InsertGame);
+export default compose(
+  withRouter, 
+  connect(mapStateToProps, mapDispatchToProps))(InsertGame);
