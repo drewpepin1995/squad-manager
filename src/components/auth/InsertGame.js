@@ -5,6 +5,7 @@ import { Modal, Button, Form, Input } from 'antd';
 import { DatePicker } from 'antd';
 import { insertGame } from '../../store/actions/teamsActions';
 import { connect } from 'react-redux';
+import { compose } from '../../../../../../Library/Caches/typescript/3.6/node_modules/redux';
 const dateFormat = 'YYYY/MM/DD HH:mm';
 
 function onChange(value, dateString) {
