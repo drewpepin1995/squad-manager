@@ -5,6 +5,8 @@ import { compose } from 'redux';
 import { Redirect, withRouter } from 'react-router-dom';
 import { Spin } from 'antd';
 import { Table } from 'antd';
+import InsertPlayer from '../../components/auth/InsertPlayer';
+import InsertGame from '../../components/auth/InsertGame';
 
 const rosterColumns = [
     {
@@ -51,6 +53,7 @@ const scheduleData = [
 
 
 const TeamDetails = (props) => {
+    console.log(props)
     const { team, loading } = props;
     if (loading || !team) {
         return <Spin />
@@ -70,10 +73,12 @@ const TeamDetails = (props) => {
                     <div className="col s12 m5">
                         <h5 className='center'>Roster</h5>
                         <Table columns={rosterColumns} dataSource={rosterData} />
+                        <InsertPlayer />
                     </div>
                     <div className='col s12 m7'>
                         <h5 className='center'>Schedule</h5>
                         <Table columns={scheduleColumns} dataSource={scheduleData} />
+                        <InsertGame />
                     </div>
                 </div>
         </div>
@@ -85,6 +90,7 @@ const TeamDetails = (props) => {
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.id;
     const teams = state.firestore.data.teams;
+    let roster;
     let team;
 
     if (teams) {
@@ -105,8 +111,10 @@ export default compose(
             {
                 collection: "users",
                 doc: props.auth.uid,
-                subcollections: [{ collection: "teams" }],
-                storeAs: 'teams'
+                subcollections: [
+                    { collection: "teams"}
+            ],
+                storeAs: 'teams',
             }
         ];
     }),
