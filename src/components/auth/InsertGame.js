@@ -8,10 +8,6 @@ import { connect } from 'react-redux';
 import { compose } from '../../../../../../Library/Caches/typescript/3.6/node_modules/redux';
 const dateFormat = 'YYYY/MM/DD HH:mm';
 
-function onChange(value, dateString) {
-  console.log('Selected Time: ', value);
-  console.log('Formatted Selected Time: ', dateString);
-}
 
 function onOk(value) {
   console.log('onOk: ', value);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import { Modal, Button, Form, Input } from 'antd';
 import { insertPlayer } from '../../store/actions/teamsActions';

@@ -26,6 +26,7 @@ const teamsReducer = (state = initState, action) => {
         case 'INSERT_GAME_ERROR':
             console.log("Error adding game", action.err)
             return state;
+        default: 
     }
     return state;
 }

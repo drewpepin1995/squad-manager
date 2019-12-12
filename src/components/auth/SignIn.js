@@ -6,10 +6,8 @@ import 'antd/dist/antd.css';
 import {
     Form,
     Input,
-    Button,
-    Select
+    Button
 } from 'antd';
-const { Option } = Select;
 
 class SignIn extends Component {
 

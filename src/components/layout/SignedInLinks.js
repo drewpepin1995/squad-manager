@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import React, { Profiler } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
 

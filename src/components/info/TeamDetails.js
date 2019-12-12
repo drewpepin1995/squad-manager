@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Spin } from 'antd';
 import { Table } from 'antd';
 import InsertPlayer from '../../components/auth/InsertPlayer';
@@ -90,7 +90,6 @@ const TeamDetails = (props) => {
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.id;
     const teams = state.firestore.data.teams;
-    let roster;
     let team;
 
     if (teams) {

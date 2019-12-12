@@ -24,7 +24,6 @@ export const insertPlayer = (player, teamId) => {
     const { playerFirstName, playerLastName, playerDues } = player
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firestore = getFirestore();
-        const profile = getState().firebase.profile;
         const managerId = getState().firebase.auth.uid;
             firestore.collection('/users/' + managerId + '/teams/' + teamId + '/roster/').add({
                 playerFirstName, playerLastName, playerDues,
@@ -45,7 +44,6 @@ export const insertGame = (game, teamId) => {
 
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firestore = getFirestore();
-        const profile = getState().firebase.profile;
         const managerId = getState().firebase.auth.uid;
             firestore.collection('/users/' + managerId + '/teams/' + teamId + '/schedule/').add({
                 date, opponent,
