@@ -22,7 +22,7 @@ class Dashboard extends Component {
                     </div>
                     <div className='col s12 m5 offset-m1'>
                         <h5 id='dashboardHeader'>Upcoming Games</h5>
-                        <UpcomingGames />
+                        <UpcomingGames teams={teams}/>
                     </div>
                 </div>
             </div>
@@ -42,13 +42,18 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect(props => {
-      return [
-        {
-          collection: "users",
-          doc: props.auth.uid, 
-          subcollections: [{ collection: "teams" }],
-          storeAs: 'teams'
-        }
-      ];
+        return [
+            {
+                collection: "users",
+                doc: props.auth.uid,
+                subcollections: [
+                    {
+                        collection: "teams",
+                        doc: props.teamId,
+                    }
+                ],
+                storeAs: 'teams',
+            }
+        ];
     })
 )(Dashboard);
