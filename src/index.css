@@ -1,13 +1,61 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+form, #form {
+  padding: 20px;
+  margin-top: 40px;
+
 }
+
+#form button {
+  background-color:  #00004D;
+  border-color:  #00004D;
+}
+
+#form h5 {
+  color:  #00004D;
+}
+
+form button, form h5, #form button, #form h5{
+  margin: 20px 0;
+  margin-top: 10px;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]){
+  border-color: purple;
+  box-shadow: none
+}
+
+#nav {
+  margin-bottom: 50px;
+  background-color:  #00004D;
+
+}
+
+#card {
+  margin: 20px;
+  border: 2px solid black;
+}
+
+#dashboardHeader {
+  margin: auto;
+  text-align: center;
+}
+
+#dashboardSubHeader {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#infoButton {
+  margin-top: 20px;
+}
+
+
+
