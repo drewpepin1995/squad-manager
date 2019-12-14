@@ -25,15 +25,16 @@ export const insertPlayer = (player, teamId) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firestore = getFirestore();
         const managerId = getState().firebase.auth.uid;
-            firestore.collection('/users/' + managerId + '/teams/' + teamId + '/roster/').add({
-                playerFirstName, playerLastName, playerDues,
-                addedBy: managerId,
-                addedAt: new Date()
-            }).then(() => {
-                dispatch({ type: 'INSERT_PLAYER', player: {playerFirstName, playerLastName, playerDues} })
-            }).catch((err) => {
-                dispatch({ type: 'INSERT_PLAYER_ERROR', err })
-            })
+        firestore.collection('/users/' + managerId + '/teams/' + teamId + '/roster/').add({
+            playerFirstName, playerLastName, playerDues,
+            addedBy: managerId,
+            playerId: playerFirstName + playerLastName,
+            addedAt: new Date()
+        }).then(() => {
+            dispatch({ type: 'INSERT_PLAYER', player: { playerFirstName, playerLastName, playerDues } })
+        }).catch((err) => {
+            dispatch({ type: 'INSERT_PLAYER_ERROR', err })
+        })
     }
 
 }
@@ -45,17 +46,32 @@ export const insertGame = (game, teamId) => {
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firestore = getFirestore();
         const managerId = getState().firebase.auth.uid;
-            firestore.collection('/users/' + managerId + '/teams/' + teamId + '/schedule/').add({
-                date, opponent, time,
-                addedBy: managerId,
-                addedAt: new Date()
-            }).then(() => {
-                dispatch({ type: 'INSERT_GAME', game: {date, opponent} })
-            }).catch((err) => {
-                dispatch({ type: 'INSERT_GAME_ERROR', err })
-            })
+        firestore.collection('/users/' + managerId + '/teams/' + teamId + '/schedule/').add({
+            date, opponent, time,
+            addedBy: managerId,
+            addedAt: new Date()
+        }).then(() => {
+            dispatch({ type: 'INSERT_GAME', game: { date, opponent } })
+        }).catch((err) => {
+            dispatch({ type: 'INSERT_GAME_ERROR', err })
+        })
     }
 
 }
 
+export const deletePlayer = (playerId, teamId) => {
+
+    return (dispatch, getState, { getFirebase, getFirestore }) => {
+        const firestore = getFirestore();
+        const managerId = getState().firebase.auth.uid;
+        firestore.collection('/users/' + managerId + '/teams/' + teamId + '/roster/').doc(playerId).delete(
+
+        ).then(() => {
+            dispatch({ type: 'DELETE_PLAYER', player: playerId })
+        }).catch((err) => {
+            dispatch({ type: 'DELETE_PLAYER_ERROR', err })
+        })
+    }
+
+}
 

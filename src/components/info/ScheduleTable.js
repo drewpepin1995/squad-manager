@@ -10,21 +10,20 @@ const scheduleColumns = [
 
     {
         title: 'Date',
-        dataIndex: 'date'
+        dataIndex: 'date',
+        key:'date'
 
     },
     {
         title: 'Time',
-        dataIndex: 'time'
+        dataIndex: 'time',
+        key:'time'
 
     },
     {
         title: 'Opponent',
-        dataIndex: 'opponent'
-    },
-    {
-        title: 'Action',
-        dataIndex: 'action'
+        dataIndex: 'opponent',
+        key:'opponent'
     }
 ];
 
@@ -36,7 +35,8 @@ const ScheduleTable = (props) => {
     let rosters = props.roster;
     let schedules = props.schedule;
     if (loading || !team || !rosters || !schedules) {
-        return <Skeleton />
+        return <Skeleton/>
+
     }
 
     const scheduleData = [];
@@ -46,8 +46,7 @@ const ScheduleTable = (props) => {
 
             date: game.date,
             time: game.time,
-            opponent: game.opponent,
-            action: <a>Delete</a>
+            opponent: game.opponent
 
         })
 
@@ -99,7 +98,7 @@ export default compose(
                         collection: "teams",
                         doc: props.teamId,
                         subcollections: [
-                            { collection: "roster" }
+                            { collection: "roster", orderBy: ['playerFirstName', 'asc'] }
                         ]
                     }
 
@@ -114,7 +113,7 @@ export default compose(
                         collection: "teams",
                         doc: props.teamId,
                         subcollections: [
-                            { collection: "schedule" }
+                            { collection: "schedule", orderBy: ['date', 'asc']}
                         ]
                     }
 

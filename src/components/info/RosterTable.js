@@ -5,20 +5,23 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Skeleton } from 'antd';
 import { Table } from 'antd';
-
+import DeletePlayer from '../auth/DeletePlayer'
 const rosterColumns = [
     {
         title: 'Name',
-        dataIndex: 'name'
+        dataIndex: 'name',
+        key:'name'
 
     },
     {
         title: 'Dues',
-        dataIndex: 'dues'
+        dataIndex: 'dues',
+        key:'dues'
     },
     {
         title: 'Action',
-        dataIndex: 'action'
+        dataIndex: 'action',
+        key:'action'
     }
 ];
 
@@ -28,6 +31,7 @@ const RosterTable = (props) => {
     const { team, loading } = props;
     let rosters = props.roster;
     let schedules = props.schedule;
+    console.log(rosters);
     if (loading || !team || !rosters || !schedules) {
         return <Skeleton />
     }
@@ -39,7 +43,7 @@ const RosterTable = (props) => {
 
             name: player.playerFirstName + ' ' + player.playerLastName,
             dues: player.playerDues + '$',
-            action: <a>Delete</a>
+            action: <DeletePlayer teamId={props.match.params.id} player={player} playerId={player.id}/>
 
         })
 
@@ -66,6 +70,7 @@ const mapStateToProps = (state, ownProps) => {
         teamId: ownProps.match.params.id,
     };
 }
+
 
 export default compose(
     withRouter,

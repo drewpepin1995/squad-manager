@@ -51,6 +51,7 @@ class InsertPlayer extends Component {
         this.setState({
             visible: false
         })
+        
     }
 
     render() {

@@ -26,7 +26,13 @@ const teamsReducer = (state = initState, action) => {
         case 'INSERT_GAME_ERROR':
             console.log("Error adding game", action.err)
             return state;
-        default: 
+        case 'DELETE_PLAYER':
+            console.log("Deleted player", action.playerId)
+            return state;
+        case 'DELETE_PLAYER_ERROR':
+            console.log("Delete player error", action.err)
+            return state;
+        default:
     }
     return state;
 }
