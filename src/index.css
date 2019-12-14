@@ -57,5 +57,9 @@ textarea.materialize-textarea:focus:not([readonly]){
   margin-top: 20px;
 }
 
+#logo {
+  height: 50px;
+}
+
 
 

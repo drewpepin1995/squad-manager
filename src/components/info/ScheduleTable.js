@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Skeleton } from 'antd';
 import { Table } from 'antd';
+import { Link } from 'react-router-dom';
 
 const scheduleColumns = [
 
@@ -24,6 +25,11 @@ const scheduleColumns = [
         title: 'Opponent',
         dataIndex: 'opponent',
         key:'opponent'
+    },
+    {
+        title: 'Action',
+        dataIndex: 'action',
+        key:'action'
     }
 ];
 
@@ -46,7 +52,10 @@ const ScheduleTable = (props) => {
 
             date: game.date,
             time: game.time,
-            opponent: game.opponent
+            opponent: game.opponent,
+            action: <span onClick={(e) => { console.log('checked in') }}>
+            <a>Check In</a>
+            </span>
 
         })
 

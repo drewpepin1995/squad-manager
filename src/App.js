@@ -8,6 +8,7 @@ import SignUp from './components/auth/SignUp'
 import RegisterTeam from './components/info/RegisterTeam'
 import SignedInRoute from './components/routes/SignedInRoute'
 import './App.css';
+import GameDetails from './components/info/GameDetails';
 
 
 
@@ -23,6 +24,7 @@ class App extends Component {
           <Switch>
             <SignedInRoute exact path='/' component={Dashboard} />
             <SignedInRoute path='/team/:id' component={TeamDetails} />
+            <SignedInRoute path='/game/:id' component={GameDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/registerteam' component={RegisterTeam} />
