@@ -11,7 +11,7 @@ class Schedule extends Component {
 
     render() {
         return (
-            <div>
+            <div class="col-xs-12">
                 <h2>My Schedule</h2>
                 <div id="schedule">
                     <Calendar
