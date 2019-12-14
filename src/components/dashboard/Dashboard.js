@@ -17,6 +17,7 @@ class Dashboard extends Component {
                 <div className='row'>
                     <div className="col s12 m6">
                         <h5 id='dashboardHeader'>My Teams</h5>
+                        <p id='dashboardSubHeader'>(Click Team Card to see Team Details)</p>
                         <Teams teams={teams} />
                     </div>
                     <div className='col s12 m5 offset-m1'>

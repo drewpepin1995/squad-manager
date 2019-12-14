@@ -4,14 +4,34 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { Skeleton } from 'antd';
-import InsertPlayer from '../../components/auth/InsertPlayer';
-import InsertGame from '../../components/auth/InsertGame';
-import RosterTable from './RosterTable';
-import ScheduleTable from './ScheduleTable';
+import { Table } from 'antd';
+
+const scheduleColumns = [
+
+    {
+        title: 'Date',
+        dataIndex: 'date'
+
+    },
+    {
+        title: 'Time',
+        dataIndex: 'time'
+
+    },
+    {
+        title: 'Opponent',
+        dataIndex: 'opponent'
+    },
+    {
+        title: 'Action',
+        dataIndex: 'action'
+    }
+];
 
 
 
-const TeamDetails = (props) => {
+
+const ScheduleTable = (props) => {
     const { team, loading } = props;
     let rosters = props.roster;
     let schedules = props.schedule;
@@ -19,35 +39,28 @@ const TeamDetails = (props) => {
         return <Skeleton />
     }
 
+    const scheduleData = [];
 
+    schedules.map(game => {
+        scheduleData.push({
 
+            date: game.date,
+            time: game.time,
+            opponent: game.opponent,
+            action: <a>Delete</a>
 
+        })
 
+    })
     return (
-        <div className='container section game-details'>
-            <div className='card z-depth-0'>
-                <div className='card-content'>
-                    <span className='card-title center'>{team.name}</span>
-                    <p className="center">Manager : {team.managerFirstName}  {team.managerLastName}</p>
-                </div>
-                <div className="card-action grey-lighten-4 grey-text">
-                </div>
-            </div>
-            <div className='row'>
-                <div className="col s12 m5">
-                    <h5 className='center'>Roster</h5>
-                    <RosterTable />
-                    <InsertPlayer />
-                </div>
-                <div className='col s12 m7'>
-                    <h5 className='center'>Schedule</h5>
-                    <ScheduleTable />
-                    <InsertGame />
-                </div>
-            </div>
-        </div>
+        <Table columns={scheduleColumns} dataSource={scheduleData} />
     );
 }
+
+
+
+
+
 
 
 
@@ -110,4 +123,4 @@ export default compose(
             }
         ];
     }),
-)(TeamDetails);
+)(ScheduleTable);

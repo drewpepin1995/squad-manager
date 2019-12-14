@@ -48,5 +48,14 @@ textarea.materialize-textarea:focus:not([readonly]){
   text-align: center;
 }
 
+#dashboardSubHeader {
+  margin-top: 10px;
+  text-align: center;
+}
+
+#infoButton {
+  margin-top: 20px;
+}
+
 
 

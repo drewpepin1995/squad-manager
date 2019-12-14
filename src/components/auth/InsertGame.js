@@ -6,7 +6,9 @@ import { DatePicker } from 'antd';
 import { insertGame } from '../../store/actions/teamsActions';
 import { connect } from 'react-redux';
 import { compose } from '../../../../../../Library/Caches/typescript/3.6/node_modules/redux';
-const dateFormat = 'YYYY/MM/DD HH:mm';
+import { TimePicker } from 'antd';
+import moment from 'moment';
+const dateFormat = 'YYYY/MM/DD';
 
 
 function onOk(value) {
@@ -17,6 +19,7 @@ class InsertGame extends Component {
   state = { 
     visible: false,
     date: '',
+    time: '',
     opponent: ''
   };
 
@@ -53,12 +56,23 @@ class InsertGame extends Component {
                 
             
         )
+    this.setState({
+      visible: false
+    })
   }
 
   handleDateInputChange = (date) => {
-    const valueOfInput = date.format();
+    const valueOfInput = date.format("YYYY/MM/DD");
     this.setState({
       date: valueOfInput
+
+    })
+  }
+
+  handleTimeInputChange = (time) => {
+    const valueOfInput = time.format("HH:mm");
+    this.setState({
+      time: valueOfInput
 
     })
   }
@@ -76,9 +90,10 @@ class InsertGame extends Component {
           onCancel={this.handleCancel}
         >
           <Form id='form' onSubmit={this.handleSubmit}>
-            <DatePicker id='date' format={dateFormat} selected={this.state.date} showTime={{ format: 'HH:mm' }} placeholder="Select Time" onChange={this.handleDateInputChange} onOk={onOk} />
+            <DatePicker id='date' format={dateFormat} selected={this.state.date} placeholder="Select Day" onChange={this.handleDateInputChange} onOk={onOk} />
+            <TimePicker id='time' defaultOpenValue={moment('00:00', 'HH:mm')} selected={this.state.time} onChange={this.handleTimeInputChange}/>,
             <Form.Item label="Opponent" htmlFor='Opponent'>
-              <Input id='opponent' onChange={this.handleTextInputChange} />
+              <Input id='opponent' onChange={this.handleTextInputChange} placeholder="Opponent Team Name" />
             </Form.Item>
             <Button type="primary" htmlType="submit">
               Add Game

@@ -44,10 +44,13 @@ class InsertPlayer extends Component {
         e.preventDefault();
         this.props.insertPlayer(
             this.state, this.props.match.params.id
-                
-                
-            
+
+
+
         )
+        this.setState({
+            visible: false
+        })
     }
 
     render() {
@@ -65,13 +68,13 @@ class InsertPlayer extends Component {
                     <Form id='form' onSubmit={this.handleSubmit}>
                         <h5 className='grey-text text-darken-3'>Player Details</h5>
                         <Form.Item label="Player First Name" htmlFor='Player First Name'>
-                            <Input id='playerFirstName' onChange={this.handleChange} />
+                            <Input id='playerFirstName' placeholder="John" onChange={this.handleChange} />
                         </Form.Item>
                         <Form.Item label="Player Last Name" htmlFor='Player Last Name'>
-                            <Input id='playerLastName' onChange={this.handleChange} />
+                            <Input id='playerLastName' placeholder="Smith" onChange={this.handleChange} />
                         </Form.Item>
-                        <Form.Item label="Player Dues" htmlFor='Player Dues'>
-                            <Input id='playerDues' onChange={this.handleChange} />
+                        <Form.Item label="Player Dues ($)" htmlFor='Player Dues'>
+                            <Input id='playerDues' placeholder="100" onChange={this.handleChange} />
                         </Form.Item>
                         <Form.Item >
                             <Button type="primary" htmlType="submit">

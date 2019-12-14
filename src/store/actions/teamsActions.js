@@ -40,13 +40,13 @@ export const insertPlayer = (player, teamId) => {
 
 export const insertGame = (game, teamId) => {
 
-    const { date, opponent } = game
+    const { time, date, opponent } = game
 
     return (dispatch, getState, { getFirebase, getFirestore }) => {
         const firestore = getFirestore();
         const managerId = getState().firebase.auth.uid;
             firestore.collection('/users/' + managerId + '/teams/' + teamId + '/schedule/').add({
-                date, opponent,
+                date, opponent, time,
                 addedBy: managerId,
                 addedAt: new Date()
             }).then(() => {
