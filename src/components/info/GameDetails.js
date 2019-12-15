@@ -18,11 +18,8 @@ const GameDetails = (state, props) => {
             <div className='container section'>
                 <div className='card z-depth-0'>
                     <div className='card-content'>
-                        <span className='card-title center'>Game Details</span>
-                        <p className="center">Game Id : {state.teamId}</p>
-                        <p className="center">Opponent : </p>
-                        <p className="center">Day : </p>
-                        <p className="center">Time : </p>
+                        <span className='card-title center'>Check In Page</span>
+                        <p className="center">Coming Soon ...</p>
                     </div>
                     <div className="card-action grey-lighten-4 grey-text">
                         <List
