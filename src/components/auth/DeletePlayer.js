@@ -33,8 +33,6 @@ class DeletePlayer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state)
-    console.log(ownProps)
     return {
         auth: state.firebase.auth,
         playerId: ownProps.playerId,

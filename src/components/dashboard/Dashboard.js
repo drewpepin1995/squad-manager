@@ -33,7 +33,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         teams: state.firestore.ordered.teams,
         auth: state.firebase.auth

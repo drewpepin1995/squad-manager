@@ -31,7 +31,6 @@ const RosterTable = (props) => {
     const { team, loading } = props;
     let rosters = props.roster;
     let schedules = props.schedule;
-    console.log(rosters);
     if (loading || !team || !rosters || !schedules) {
         return <Skeleton />
     }
