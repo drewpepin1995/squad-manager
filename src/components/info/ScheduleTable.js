@@ -6,30 +6,31 @@ import { withRouter } from 'react-router-dom';
 import { Skeleton } from 'antd';
 import { Table } from 'antd';
 import { Link } from 'react-router-dom';
+import GameDetails from './GameDetails';
 
 const scheduleColumns = [
 
     {
         title: 'Date',
         dataIndex: 'date',
-        key:'date'
+        key: 'date'
 
     },
     {
         title: 'Time',
         dataIndex: 'time',
-        key:'time'
+        key: 'time'
 
     },
     {
         title: 'Opponent',
         dataIndex: 'opponent',
-        key:'opponent'
+        key: 'opponent'
     },
     {
         title: 'Action',
         dataIndex: 'action',
-        key:'action'
+        key: 'action'
     }
 ];
 
@@ -41,7 +42,7 @@ const ScheduleTable = (props) => {
     let rosters = props.roster;
     let schedules = props.schedule;
     if (loading || !team || !rosters || !schedules) {
-        return <Skeleton/>
+        return <Skeleton />
 
     }
 
@@ -53,9 +54,7 @@ const ScheduleTable = (props) => {
             date: game.date,
             time: game.time,
             opponent: game.opponent,
-            action: <span onClick={(e) => { console.log('checked in') }}>
-            <a>Check In</a>
-            </span>
+            action: <Link to={'/game/' + game.id}>Check In</Link>
 
         })
 
@@ -122,7 +121,7 @@ export default compose(
                         collection: "teams",
                         doc: props.teamId,
                         subcollections: [
-                            { collection: "schedule", orderBy: ['date', 'asc']}
+                            { collection: "schedule", orderBy: ['date', 'asc'] }
                         ]
                     }
 
