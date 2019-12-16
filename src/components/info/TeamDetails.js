@@ -27,7 +27,7 @@ const TeamDetails = (props) => {
         <div className='container section game-details'>
             <div className='card z-depth-0'>
                 <div className='card-content'>
-                    <span className='card-title center'>{team.name}</span>
+                    <span id="dashboardHeader" className='card-title center'>{team.name}</span>
                     <p className="center">Manager : {team.managerFirstName}  {team.managerLastName}</p>
                 </div>
                 <div className="card-action grey-lighten-4 grey-text">
@@ -35,12 +35,12 @@ const TeamDetails = (props) => {
             </div>
             <div className='row'>
                 <div className="col s12 m5">
-                    <h5 className='center'>Roster</h5>
+                    <h5 id="dashboardHeader" className='center'>Roster</h5>
                     <RosterTable />
                     <InsertPlayer />
                 </div>
                 <div className='col s12 m7'>
-                    <h5 className='center'>Schedule</h5>
+                    <h5 id="dashboardHeader" className='center'>Schedule</h5>
                     <ScheduleTable />
                     <InsertGame />
                 </div>

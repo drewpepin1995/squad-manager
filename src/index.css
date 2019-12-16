@@ -53,6 +53,7 @@ textarea.materialize-textarea:focus:not([readonly]){
 #dashboardHeader {
   margin: auto;
   text-align: center;
+  color: #00004D;
 }
 
 #dashboardSubHeader {
