@@ -14,7 +14,7 @@ const Navbar = (props) => {
   return (
     <nav id='nav' className="nav-wrapper">
       <div className="container">
-        <Link to='/' className='brand-logo'><img id='logo' className='responsive-img'src={'images/logo.png'}/></Link>
+        <Link to='/' className='brand-logo'><img id='logo' className='responsive-img hide-on-med-and-down'src={'images/logo.png'}/></Link>
         { auth.isLoaded && links }
       </div>
     </nav>
