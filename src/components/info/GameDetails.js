@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { List, Typography } from 'antd';
+import React from 'react'
+import { List } from 'antd';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';

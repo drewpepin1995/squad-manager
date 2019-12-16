@@ -92,6 +92,7 @@ export default compose(
 
                 ],
                 storeAs: 'roster',
+                orderBy: ['playerFirstName', 'asc']
             },
             {
                 collection: "users",
@@ -107,6 +108,7 @@ export default compose(
 
                 ],
                 storeAs: 'schedule',
+                orderBy: ['date', 'asc']
             }
         ];
     }),

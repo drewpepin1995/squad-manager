@@ -101,6 +101,7 @@ export default compose(
 
                 ],
                 storeAs: 'roster',
+                orderBy: ['playerDues', 'desc']
             },
             {
                 collection: "users",
@@ -116,6 +117,7 @@ export default compose(
 
                 ],
                 storeAs: 'schedule',
+                orderBy: ['date', 'desc']
             }
         ];
     }),

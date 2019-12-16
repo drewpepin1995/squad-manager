@@ -6,7 +6,6 @@ import { withRouter } from 'react-router-dom';
 import { Skeleton } from 'antd';
 import { Table } from 'antd';
 import { Link } from 'react-router-dom';
-import GameDetails from './GameDetails';
 
 const scheduleColumns = [
 

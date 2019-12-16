@@ -40,7 +40,14 @@ textarea.materialize-textarea:focus:not([readonly]){
 
 #card {
   margin: 20px;
-  border: 2px solid black;
+  border: 5px solid #00004D;
+}
+
+#notiCard {
+  width: 300px;
+  border: 5px solid #00004D;
+  margin:auto;
+  margin-top: 20px;
 }
 
 #dashboardHeader {
@@ -59,6 +66,10 @@ textarea.materialize-textarea:focus:not([readonly]){
 
 #logo {
   height: 50px;
+}
+
+#notiList {
+  margin-bottom: 20px;
 }
 
 
