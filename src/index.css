@@ -54,6 +54,7 @@ textarea.materialize-textarea:focus:not([readonly]){
   margin: auto;
   text-align: center;
   color: #00004D;
+  margin-bottom: 10px;
 }
 
 #dashboardSubHeader {
