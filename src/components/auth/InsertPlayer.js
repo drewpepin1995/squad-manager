@@ -55,7 +55,7 @@ class InsertPlayer extends Component {
     render() {
         return (
             <div>
-                <Button type="primary" onClick={this.showModal}>
+                <Button id='button' type="primary" onClick={this.showModal}>
                     Add a Player
         </Button>
                 <Modal
@@ -76,9 +76,9 @@ class InsertPlayer extends Component {
                             <Input id='playerDues' placeholder="100" onChange={this.handleChange} />
                         </Form.Item>
                         <Form.Item >
-                            <Button type="primary" htmlType="submit">
+                            <Button  type="primary" htmlType="submit">
                                 Add Player
-          </Button>
+          </Button >
                         </Form.Item>
                     </Form>
                 </Modal>

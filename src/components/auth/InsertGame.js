@@ -78,7 +78,7 @@ class InsertGame extends Component {
   render() {
     return (
       <div>
-        <Button type="primary" onClick={this.showModal}>
+        <Button id='button' type="primary" onClick={this.showModal}>
           Add a Game
         </Button>
         <Modal
@@ -93,7 +93,7 @@ class InsertGame extends Component {
             <Form.Item label="Opponent" htmlFor='Opponent'>
               <Input id='opponent' onChange={this.handleTextInputChange} placeholder="Opponent Team Name" />
             </Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button id ='button' type="primary" htmlType="submit">
               Add Game
           </Button>
           </Form>
