@@ -96,6 +96,14 @@ hr {
   color: #00004d;
 }
 
+span {
+  font-weight: bold;
+}
+
+#summaryHeader {
+  font-weight: bold;
+}
+
 
 
 
