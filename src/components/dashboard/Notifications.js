@@ -8,7 +8,7 @@ const Results = (props) => {
   const {notifications} = props;
   return (
       <div className="section container">
-          <div className="card z-depth-0 project-summary" id="notiCard">
+          <div className="card z-depth-0 project-summary" id="card">
               <div className='card-content'>
                 <ul className='notifications'>
                   { notifications && notifications.map(item => {
