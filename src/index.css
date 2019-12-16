@@ -91,6 +91,11 @@ textarea.materialize-textarea:focus:not([readonly]){
   white-space: nowrap;
 }
 
+hr {
+  margin-bottom: 15px;
+  color: #00004d;
+}
+
 
 
 
