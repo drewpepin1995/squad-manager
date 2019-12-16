@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
+        <div id='content'>
           <Navbar />
           <Switch>
             <SignedInRoute exact path='/' component={Dashboard} />
