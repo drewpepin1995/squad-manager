@@ -73,4 +73,17 @@ textarea.materialize-textarea:focus:not([readonly]){
   margin-bottom: 20px;
 }
 
+#nav {
+  background: #00004d;
+  min-height: 70px;
+  font-size: 18px;
+  width: 100%;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  color: #fff;
+  z-index: 99;
+  white-space: nowrap;
+}
+
+
 
